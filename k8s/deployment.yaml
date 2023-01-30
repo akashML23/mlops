@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mnist-digit-recognition
+  labels:
+    app: mnist-digit-recognition
+spec:
+  selector:
+    matchLabels:
+      app: mnist-digit-recognition
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mnist-digit-recognition
+    spec:
+      containers:
+      - name: mnist-digit-recognition
+        image: 15je001702/mnist-digit-recognition:v1
+        imagePullPolicy: Always

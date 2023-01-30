@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mnist-digit-recognition-service
+  labels:
+    app: mnist-digit-recognition
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    name: mnist-digit-recognition
+  selector:
+    app: mnist-digit-recognition
+  type: NodePort
