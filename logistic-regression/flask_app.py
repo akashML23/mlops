@@ -6,7 +6,7 @@ import numpy as np
 import pickle
 from numpy import asarray
 
-app=Flask(_name_)
+app=Flask(__name__)
 model = pickle.load(open("models/logistic_regression_mnist.pkl", 'rb'))
 
 
@@ -22,7 +22,7 @@ def predict():
     # response = pd.Series(digit).to_json(orient='values')
     return jsonify({'message': 'success', 'digit': digit.tolist()})
 
-if _name_ == '_main_':
+if __name__ == '_main_':
     # app.debug = True
     port = int(os.environ.get("PORT", 5001))
     app.run(host='0.0.0.0', port=port)
